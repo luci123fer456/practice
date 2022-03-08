@@ -1,0 +1,71 @@
+#include <stdio.h>
+int a[100],f=-1,r=-1,maxsize;
+void enqueue();
+void dequeue();
+void display();
+
+ 
+int main()
+{
+  printf("enter the size of the queue\n");
+  scanf("%d",&maxsize);
+  while(1){
+  printf("\nMENU\n1.enqueue\n2.dequeue\n3.display\n4.exit\n");
+    int choice;
+    printf("enter the choice\n");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+      case 1 :printf("enter the value to be inserted ");
+              int ele;
+              scanf("%d",&ele);
+              enqueue(ele);
+              display();
+              break;
+      case 2 :dequeue();
+              printf("\n the deleted element is %d",a[f]);
+            display();
+              break;
+      case 3:display();
+              break;
+      case 4 :printf("existing.........");
+    }
+    }
+  
+}
+
+void enqueue(int value)
+{
+  if(r == maxsize-1){
+    printf("\nthe queue is full");
+    }  
+  else
+  {
+    r++;
+    a[r]=value;
+    
+    
+    
+  }
+};
+void dequeue()
+{
+  if((f==-1&&r==-1)||(f==r))
+    printf("the queue is empty");
+  else
+  {
+    f++;
+    int item=a[f];
+    
+  }
+};
+void display()
+{
+  if(f==-1&&r==-1)
+    printf("the queue is empty");
+  else
+  { printf("\nthe queue is as follows--->");
+    for(int i=(f+1);i<(r+1);i++)
+    printf("\t%d\t",a[i]);
+  }
+}
