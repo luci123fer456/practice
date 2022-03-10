@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+
+int main()
+
+{ 
+  int n,f=0,r=0;
+ 
+  int item;
+  printf("enter the size of the circular queue\n");
+  scanf("%d",&n);
+  int cq[n];
+  int choice;
+  do{
+  printf("\nMENU\n1.enqueue\n2.dequeue\n3.display\n4.exit\n");
+  
+  printf("enter the choice \n ");
+  scanf("%i",&choice);
+  switch(choice)
+  {
+    case 1 :
+            if((r+1)%n==f)
+              printf("the queue is full\n");
+            else
+            {printf("enter the element to add\n");scanf("%d",&item);
+              r=(r+1)%n;
+              cq[r]=item;
+            }
+              
+              break;
+    case 2 :  if(f==r)
+              printf("the queue is empty\n");
+              else
+              {
+                f=f+1;
+                int trash;
+                trash=cq[f];
+                printf("the deleted element is %i",cq[f]);
+      
+              }
+              
+              break;
+    case 3 : if(f==r)
+              printf("the queue is empty");
+              else
+              {
+                for(int i=f+1;i<r+1;i++)
+                {
+                  printf("\t%i\t",cq[i]);
+                }
+      
+              }
+              break;
+    case 4 : printf("exiting.........");
+              break;
+    
+  }
+    }while(choice!=4);
+  
+return 0;}
+ 
