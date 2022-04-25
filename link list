@@ -1,0 +1,71 @@
+#include<stdio.h>
+struct node
+{
+int data;
+struct node *link;
+};
+struct node *ptr;
+struct node *head;
+struct node *ptr1;
+
+
+void push()
+{
+  struct node *new=malloc(sizeof(struct node));
+  printf("enter the element to insert");
+  scanf("%i",&new->data);
+  if(head==NULL)
+  head=new;
+  else
+    new->link=head;
+  head=new;
+}
+void pop()
+{
+  if(head==NULL)
+  {
+    printf("list empty");
+  }
+  else
+  {
+    ptr=head;
+    printf("poped element is %i\n",ptr->data);
+    ptr1=ptr->link;
+    
+    head=ptr1;
+    free(ptr);
+  }
+}
+void display()
+{  if(head==NULL)
+{
+  printf("empty");
+}
+  ptr=head;
+  while(ptr!=NULL)
+  {
+    printf("%i",ptr->data);
+    ptr=ptr->link;
+  }
+}
+
+
+void main()
+{  int choice;
+  do{printf("menu\n1.push\n2.pop\n3.display\n4.exit\n");
+  printf ("enterv= the choice");
+
+  scanf("%d",&choice);
+  switch(choice)
+  {
+    case 1:push();
+      display();
+    break;
+    case 2:pop();
+      display();
+    break;
+    case 3:display();
+    break;
+    case 4: exit(0);
+  }}while(choice!=4);
+}
