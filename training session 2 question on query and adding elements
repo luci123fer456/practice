@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main(void) {
+  int arr[10];
+  for(int i=0;i<10;i++)
+  {
+    arr[i]=0;
+  }
+  printf("enter the number of queries\n");
+  int n,si[20],ei[20],val[20];
+  scanf("%i",&n);
+  for(int j=0;j<n;j++)
+  {
+    printf("enter the staring index of query %i\n",j);
+    scanf("%i",&si[j]);
+    printf("enter the end index\n");
+    scanf("%i",&ei[j]);
+    printf("enter the value to add \n");
+    scanf("%i",&val[j]);
+   for(int k=si[j];k<=ei[j];k++)
+   {
+     arr[k]+=val[j];
+   }
+
+    
+  }
+  for(int i=0;i<10;i++)
+  {
+    printf("%i\t",arr[i]);
+  }
+
+  
+}
