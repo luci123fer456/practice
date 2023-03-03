@@ -23,10 +23,21 @@ int main(void) {
 
     
   }
+  int max=arr[0];
   for(int i=0;i<10;i++)
   {
     printf("%i\t",arr[i]);
+
+    
+   if(arr[i]>max)
+   {
+     max=arr[i];
+   }
+    
+      
+    
   }
+  printf("\nthe maximum value is %i",max);
 
   
 }
