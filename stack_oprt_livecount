@@ -1,0 +1,86 @@
+#include<stdio.h>
+#include<stdlib.h>
+int stack[100];
+int push(int x,int y,int z,int *t)
+{ 
+  int val=x;
+  int top=y;
+ int max=z;
+  
+  if(top==max)
+  {
+    printf("stack overflow");
+  }
+  else
+  {
+    top=top+1;
+    stack[top]=val;
+   *t=*t+1;
+  }
+  return top;
+}
+int pop(int x,int *y)
+{  int top=x;
+  if(top==-1)
+  {
+     printf("stack underflow");
+  }
+ else
+{
+  
+  int val=stack[top];
+  top=top-1;
+  *y=*y+1;
+ 
+  printf("the popped element is %i",val);
+}
+return top;}
+void display(int x)
+{ int top=x;
+  if (top==-1)
+  {
+    printf("stack underflow\n");
+    
+  }
+  else{
+  while(top!=-1)
+  {
+    printf("\n%i\n",stack[top]);
+    top=top-1;
+  }}
+}
+int main()
+{  int total_item=0,popped=0;
+  printf("enter the size of the stack\n");
+  int n,choice,top=-1;
+  scanf("%i",&n);
+  do
+  {
+    printf("MENU\n1.push\n2.pop\n3.exit\n");
+   
+    printf("enter the choice of yours\n");
+    scanf("%i",&choice);
+    switch(choice)
+    {
+      case 1:
+        printf("enter the value to push\n");
+        int val1;
+        scanf("%i",&val1);
+        top=push(val1,top,n,&total_item);
+        display(top);
+        printf("total item in stack:%i\n",total_item);
+      break;
+      case 2:
+        top=pop(top,&popped);
+        display(top);
+        printf("total popping :%i\n",popped);
+      break;
+      case 3:printf("exiting....\n");
+        exit(0);
+      break;
+    }
+  }
+    while(choice!=3);
+    
+  
+}
